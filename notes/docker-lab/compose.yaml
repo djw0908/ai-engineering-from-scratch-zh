@@ -1,0 +1,8 @@
+services:
+  cache:
+    image: redis:7-alpine
+
+  app:
+    image: redis:7-alpine
+    depends_on: [cache]
+    command: redis-cli -h cache ping
